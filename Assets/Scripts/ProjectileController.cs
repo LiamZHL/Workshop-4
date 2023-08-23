@@ -23,12 +23,12 @@ public class ProjectileController : MonoBehaviour
         Debug.Log("detected");
         if(col.gameObject.tag == this.tagToDamage)
         {
-            //var healthManager = col.gameObject.GetComponent<HealthManager>();
-            //healthManager.ApplyDamage(this.damageAmount);
+            var healthManager = col.gameObject.GetComponent<HealthManager>();
+            healthManager.ApplyDamage(this.damageAmount);
 
-            //var particles = Instantiate(this.collisionParticle);
-            //particles.transform.position = transform.position;
-            //particles.transform.rotation = Quaternion.LookRotation(-this.velocity);
+            var particles = Instantiate(this.collisionParticle);
+            particles.transform.position = transform.position;
+            particles.transform.rotation = Quaternion.LookRotation(-this.velocity);
             Destroy(gameObject);
             Debug.Log("destroy!");
 
